@@ -2,7 +2,7 @@ import unittest
 import calc
 
 
-class CalcTest(unittest.TestCase):
+class CalcBasicTests(unittest.TestCase):
 
     def test_add(self):
         self.assertEqual(calc.add(1, 2), 3)
@@ -20,5 +20,12 @@ class CalcTest(unittest.TestCase):
         self.assertEqual(calc.div(8, 4), 2)
 
 
-if __name__ == '__main__':
-    unittest.main()
+@unittest.skip("Skip CalcExTests")
+class CalcExTests(unittest.TestCase):
+
+    def test_sqrt(self):
+        self.assertEqual(calc.sqrt(4), 2)
+
+
+    def test_pow(self):
+        self.assertEqual(calc.pow(3, 3), 27)
